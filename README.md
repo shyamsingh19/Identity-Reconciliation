@@ -66,4 +66,3 @@ Schema of the `Contact` table used to maintain identity resolution:
 | deletedAt      | datetime                    | YES  |     | NULL              |                                               |
 +----------------+-----------------------------+------+-----+-------------------+-----------------------------------------------+
 ```
-
