@@ -2,3 +2,4 @@ Fastapi
 uvicorn
 pymysql
 cryptography
+python-dotenv
