@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)s %(mes
 logger = logging.getLogger(__name__)
 
 
-def identify_contact(email: str = None, phoneNumber: str = None):
+async def identify_contact(email: str = None, phoneNumber: str = None):
     """
     Identifies a contact given an email and/or phone number.
 

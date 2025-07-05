@@ -15,14 +15,17 @@ class IdentifyRequest(BaseModel):
 
 
 @router.post("/identify")
-def identify(request: IdentifyRequest):
+async def identify(request: IdentifyRequest):
     try:
+        logger.debug(f"Received request: {request}")
         if not request.email and not request.phoneNumber:
             raise HTTPException(
                 status_code=400, detail="Either email or phoneNumber is required."
             )
 
-        return identify_contact(email=request.email, phoneNumber=request.phoneNumber)
+        return await identify_contact(
+            email=request.email, phoneNumber=request.phoneNumber
+        )
     except Exception as e:
         logger.error(f"Error identifying contact: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
