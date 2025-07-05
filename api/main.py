@@ -18,4 +18,4 @@ app.add_middleware(
 app.include_router(identify_router)
 
 # Serve static frontend
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+app.mount("/identify", StaticFiles(directory="static", html=True), name="static")
