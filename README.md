@@ -5,13 +5,23 @@ Bitespeed Backend Task: Identity Reconciliation
 
 This FastAPI-based service resolves user identities based on email and phone number inputs by linking them to primary and secondary contacts.
 
-🌐 **Live API**: [https://identity-reconciliation-n9a3.onrender.com](https://identity-reconciliation-n9a3.onrender.com)
+## 🌐 Live Endpoint
+
+The API is hosted on Render and available at:
+
+📍 **POST** [`/identify`](https://identity-reconciliation-n9a3.onrender.com/identify)  
+Base URL: `https://identity-reconciliation-n9a3.onrender.com`
 
 ---
 
 ## 📫 API Endpoint
 
 ### `POST /identify`
+This endpoint accepts only HTTP POST requests with Content-Type: application/json
+curl -X POST https://identity-reconciliation-n9a3.onrender.com/identify \
+  -H "Content-Type: application/json" \
+  -d '{"email": "john@example.com", "phoneNumber": "1234567890"}'
+
 
 Identifies and reconciles contact info.
 
@@ -29,7 +39,7 @@ Identifies and reconciles contact info.
 ```json
 {
   "contact": {
-    "primaryContatctId": 1,
+    "primaryContactId": 1,
     "emails": ["john@example.com"],
     "phoneNumbers": ["1234567890"],
     "secondaryContactIds": [2, 3]
@@ -66,3 +76,11 @@ Schema of the `Contact` table used to maintain identity resolution:
 | deletedAt      | datetime                    | YES  |     | NULL              |                                               |
 +----------------+-----------------------------+------+-----+-------------------+-----------------------------------------------+
 ```
+
+## ✅ Submission Checklist
+
+- [x] POST `/identify` implemented
+- [x] Accepts JSON body
+- [x] Hosted on Render
+- [x] API link in README
+- [x] Clean commit history
