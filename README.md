@@ -19,8 +19,11 @@ Base URL: `https://identity-reconciliation-n9a3.onrender.com`
 ### `POST /identify`
 This endpoint accepts only HTTP POST requests with Content-Type: application/json
 
-<pre lang="markdown"> ```bash curl -X POST https://identity-reconciliation-n9a3.onrender.com/identify \ -H "Content-Type: application/json" \ -d "{\"email\": \"john@example.com\", \"phoneNumber\": \"1234567890\"}" ``` </pre>
-
+```bash
+curl -X POST https://identity-reconciliation-n9a3.onrender.com/identify \
+  -H "Content-Type: application/json" \
+  -d '{"email": "john@example.com", "phoneNumber": "1234567890"}'
+```
 
 Identifies and reconciles contact info.
 
