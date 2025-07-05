@@ -1,5 +1,11 @@
 import pymysql
 from configparser import ConfigParser
+import os
+import dotenv 
+
+dotenv.load_dotenv()
+
+password = os.environ.get("DB_PASSWORD")  # Read from environment
 
 config = ConfigParser()
 config.read("config.ini")
@@ -8,7 +14,6 @@ user = config.get("DATABASE", "USER")
 host = config.get("DATABASE", "HOST")
 port = config.get("DATABASE", "PORT")
 timeout = config.get("DATABASE", "TIMEOUT")
-password = config.get("DATABASE", "PASSWORD")
 
 
 connection = pymysql.connect(
