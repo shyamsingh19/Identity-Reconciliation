@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Identify Contact</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        label,
+        input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        pre {
+            background: #eee;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Identify Contact</h1>
+
+    <label>Email:
+        <input type="email" id="email" />
+    </label>
+    <label>Phone Number:
+        <input type="text" id="phone" />
+    </label>
+    <button onclick="send()">Identify</button>
+
+    <h2>Response</h2>
+    <pre id="result">Waiting for input...</pre>
+
+    <script>
+        async function send() {
+            const email = document.getElementById('email').value || null;
+            const phoneNumber = document.getElementById('phone').value || null;
+
+            const res = await fetch("/identify", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, phoneNumber })
+            });
+
+            const data = await res.json();
+            document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+        }
+    </script>
+</body>
+
+</html>
