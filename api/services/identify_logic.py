@@ -50,7 +50,7 @@ def identify_contact(email: str = None, phoneNumber: str = None):
             """,
                 (email, phoneNumber, now, now),
             )
-            logger.info("Insert successful. ID:", cursor.lastrowid)
+            logger.info(f"Insert successful. ID: {cursor.lastrowid}")
             new_id = cursor.lastrowid
 
             return {
@@ -139,7 +139,7 @@ def identify_contact(email: str = None, phoneNumber: str = None):
             """,
                 (email, phoneNumber, primary_contact["id"], now, now),
             )
-            logger.info("Insert successful. ID:", cursor.lastrowid)
+            logger.info(f"Insert successful. ID: {cursor.lastrowid}")
             new_contact = {
                 "id": cursor.lastrowid,
                 "email": email,
